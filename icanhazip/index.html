@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Icanhazip</title>
+  </head>
+  <body id="ip-address"></body>
+  <script>
+    async function fetchIpAddress() {
+      try {
+        const response = await fetch("https://icanhazip.com/");
+        const ipAddress = await response.text();
+        document.getElementById("ip-address").textContent = `${ipAddress}`;
+      } catch (error) {
+        console.error("Error fetching IP address:", error);
+        document.getElementById("ip-address").textContent =
+          "Error fetching IP address";
+      }
+    }
+    fetchIpAddress();
+  </script>
+</html>
