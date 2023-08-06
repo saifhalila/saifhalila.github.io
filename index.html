@@ -34,6 +34,20 @@
     </p>
   </footer>
 
+  <script>
+    const prefersDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    if (prefersDarkMode) {
+      document.documentElement.style.setProperty("--background-color", "#000");
+      document.documentElement.style.setProperty("--text-color", "#fff");
+    } else {
+      document.documentElement.style.setProperty("--background-color", "#fff");
+      document.documentElement.style.setProperty("--text-color", "#000");
+    }
+  </script>
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",

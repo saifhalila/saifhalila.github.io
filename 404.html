@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found</title>
+    <style>
+      :root {
+        --background-color: #000;
+        --text-color: #fff;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      a {
+        color: var(--text-color);
+        text-decoration: none;
+      }
+
+      @media screen and (max-width: 768px) {
+        h1 {
+          font-size: 28px;
+        }
+
+        p {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>404</h1>
+    <p>Oops! The page you're looking for doesn't exist.</p>
+    <a href="https://saifhalila.github.io/">Back to Home</a>
+
+    <script>
+      const prefersDarkMode = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+
+      if (prefersDarkMode) {
+        document.documentElement.style.setProperty(
+          "--background-color",
+          "#000"
+        );
+        document.documentElement.style.setProperty("--text-color", "#fff");
+      } else {
+        document.documentElement.style.setProperty(
+          "--background-color",
+          "#fff"
+        );
+        document.documentElement.style.setProperty("--text-color", "#000");
+      }
+    </script>
+  </body>
+</html>
