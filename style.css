@@ -40,6 +40,17 @@ h2 {
   padding: 20px;
 }
 
+.additional-links {
+  margin-top: 20px;
+}
+
+.additional-links a {
+  font-size: 14px;
+  color: #888;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
 a {
   color: var(--text-color);
   text-decoration: none;
